@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +20,11 @@ public class ClientesController {
 	@Autowired
 	private ClientesRepository clientesRepository;
 
-	@RequestMapping("/clientes")
+	@RequestMapping(value="/clientes", method = RequestMethod.GET)
 	public @ResponseBody List<ClientesModel> consultar() {
 		return this.clientesRepository.findAll();
 	}
+	
+	
 
 }
