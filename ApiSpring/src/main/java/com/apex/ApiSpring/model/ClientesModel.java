@@ -1,32 +1,28 @@
-package model;
+package com.apex.ApiSpring.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Table(name = "clientes")
-@Entity
+
+@Entity(name = "clientes")
 public class ClientesModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_cliente")
 	private Integer idCliente;
 
-	@Column(name = "nome_cliente")
+	@Column(nullable = false)
 	private String nome;
 
-	@Column(name = "CPF")
+	@Column(nullable = false, unique = true)
 	private String CPF;
 
-	@Column(name = "telefone")
+	@Column(nullable = false)
 	private String telefone;
 
-	@Column(name = "email")
-	private String email;
 
 	public Integer getIdCliente() {
 		return idCliente;
@@ -60,12 +56,5 @@ public class ClientesModel {
 		this.telefone = telefone;
 	}
 
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 }
